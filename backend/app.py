@@ -8,13 +8,7 @@ app = Flask(__name__)
 from flask_cors import CORS
 from huggingface_hub import hf_hub_download
 import pickle
-CORS(
-    app,
-    resources={r"/*": {"origins": [
-        "https://pureharvest-tan.vercel.app"
-    ]}},
-    supports_credentials=True,
-)
+CORS(app, supports_credentials=True)
 app.config["CORS_HEADERS"] = "Content-Type"
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
