@@ -1,10 +1,14 @@
 Flask
-flask-cors
+Flask-Cors
+Flask-SQLAlchemy
 geopandas
 shapely
 scikit-learn
 numpy
 pandas
-supabase
-gunicorn
+statsmodels
+requests
 apscheduler
+supabase
+python-dotenv
+gunicorn
