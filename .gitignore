@@ -1,0 +1,23 @@
+# dependencies
+node_modules/
+
+# build files
+dist/
+build/
+
+# python
+__pycache__/
+*.pyc
+backend/cache/
+# env
+.env
+
+# android build
+android/
+
+# ML models
+*.pkl
+*.geojson
+
+# logs
+*.log
