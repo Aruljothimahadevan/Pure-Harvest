@@ -13,3 +13,4 @@ supabase
 python-dotenv
 gunicorn
 huggingface_hub
+psycopg2-binary
