@@ -72,7 +72,7 @@ const BuyerLogistics: React.FC = () => {
     const fetchDeliveries = async (id: string): Promise<void> => {
         try {
             const response = await fetch(
-                `http://pure-harvest.onrender.com/api/logistics/buyer/${id}`
+                `https://pure-harvest.onrender.com/api/logistics/buyer/${id}`
             );
 
             const data: DeliveryItem[] = await response.json();

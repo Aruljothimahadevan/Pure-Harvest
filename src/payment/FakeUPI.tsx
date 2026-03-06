@@ -22,7 +22,7 @@ export default function FakeUPI() {
     setTimeout(async () => {
       try {
         const response = await fetch(
-          `http://pure-harvest.onrender.com/api/confirm-payment/${state.order_id}`,
+          `https://pure-harvest.onrender.com/api/confirm-payment/${state.order_id}`,
           {
             method: "POST",
           }

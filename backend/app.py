@@ -10,7 +10,9 @@ from huggingface_hub import hf_hub_download
 import pickle
 CORS(
     app,
-    resources={r"/*": {"origins": "*"}},
+    resources={r"/*": {"origins": [
+        "https://pureharvest-tan.vercel.app"
+    ]}},
     supports_credentials=True,
 )
 app.config["CORS_HEADERS"] = "Content-Type"
@@ -109,7 +111,7 @@ def fetch_real_market_price(commodity, district):
 
 def get_road_distance(lat1, lon1, lat2, lon2):
     try:
-        url = f"http://router.project-osrm.org/route/v1/driving/{lon1},{lat1};{lon2},{lat2}?overview=false"
+        url = f"https://router.project-osrm.org/route/v1/driving/{lon1},{lat1};{lon2},{lat2}?overview=false"
         r = requests.get(url, timeout=3)
         data = r.json()
         return data["routes"][0]["distance"] / 1000  # meters → km
@@ -815,7 +817,7 @@ def logistics(role, user_id):
             ]
 
             osrm_url = (
-                "http://router.project-osrm.org/route/v1/driving/"
+                "https://router.project-osrm.org/route/v1/driving/"
                 + ";".join(coords)
                 + "?overview=simplified&geometries=geojson"
             )

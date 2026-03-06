@@ -29,7 +29,7 @@ export default function FakeCard() {
 
         setTimeout(async () => {
 
-            await fetch(`http://pure-harvest.onrender.com/api/confirm-payment/${state.order_id}`, {
+            await fetch(`https://pure-harvest.onrender.com/api/confirm-payment/${state.order_id}`, {
                 method: "POST"
             });
 

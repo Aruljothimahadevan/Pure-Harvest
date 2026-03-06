@@ -39,7 +39,7 @@ export default function BuyerTopNavBar() {
 
     try {
       const res = await fetch(
-        `http://pure-harvest.onrender.com/api/notifications/buyer/${buyerId}`
+        `https://pure-harvest.onrender.com/api/notifications/buyer/${buyerId}`
       );
 
       if (!res.ok) return;
@@ -54,7 +54,7 @@ export default function BuyerTopNavBar() {
   };
 
   const deleteNotification = async (id: number) => {
-    await fetch(`http://pure-harvest.onrender.com/api/notifications/delete/${id}`, {
+    await fetch(`https://pure-harvest.onrender.com/api/notifications/delete/${id}`, {
       method: "DELETE"
     });
 
@@ -65,7 +65,7 @@ export default function BuyerTopNavBar() {
     if (!buyerId) return;
 
     await fetch(
-      `http://pure-harvest.onrender.com/api/notifications/clear-seen/${buyerId}`,
+      `https://pure-harvest.onrender.com/api/notifications/clear-seen/${buyerId}`,
       { method: "DELETE" }
     );
 
@@ -138,7 +138,7 @@ export default function BuyerTopNavBar() {
 
                 // 🔥 update backend
                 await fetch(
-                  `http://pure-harvest.onrender.com/api/notifications/mark-read/${buyerId}`,
+                  `https://pure-harvest.onrender.com/api/notifications/mark-read/${buyerId}`,
                   { method: "POST" }
                 );
 

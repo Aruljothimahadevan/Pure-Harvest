@@ -22,7 +22,7 @@ export default function PaymentPage() {
 
         setIsProcessing(true);
 
-        const res = await fetch("http://pure-harvest.onrender.com/api/order", {
+        const res = await fetch("https://pure-harvest.onrender.com/api/order", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

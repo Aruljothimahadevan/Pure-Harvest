@@ -18,7 +18,7 @@ export default function BuyerOrders() {
     const [reviewedOrders, setReviewedOrders] = useState<number[]>([]);
     useEffect(() => {
         const buyerId = sessionStorage.getItem("buyerId")
-        fetch(`http://pure-harvest.onrender.com/api/buyer/orders/${buyerId}`)
+        fetch(`https://pure-harvest.onrender.com/api/buyer/orders/${buyerId}`)
             .then(res => res.json())
             .then(data => {
                 setOrders(data);
@@ -153,7 +153,7 @@ export default function BuyerOrders() {
                                         onClick={async () => {
 
                                             const res = await fetch(
-                                                `http://pure-harvest.onrender.com/api/confirm-delivery/${order.id}`,
+                                                `https://pure-harvest.onrender.com/api/confirm-delivery/${order.id}`,
                                                 { method: "POST" }
                                             );
 
@@ -237,7 +237,7 @@ export default function BuyerOrders() {
 
                             <button
                                 onClick={async () => {
-                                    await fetch(`http://pure-harvest.onrender.com/api/review/${selectedOrder.id}`, {
+                                    await fetch(`https://pure-harvest.onrender.com/api/review/${selectedOrder.id}`, {
                                         method: "POST",
                                         headers: { "Content-Type": "application/json" },
                                         body: JSON.stringify(rating)

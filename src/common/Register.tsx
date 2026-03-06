@@ -43,7 +43,7 @@ export default function Register() {
             }
         }
         try {
-            const res = await fetch("http://pure-harvest.onrender.com/register", {
+            const res = await fetch("https://pure-harvest.onrender.com/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -108,7 +108,7 @@ export default function Register() {
                 setLongitude(lng);
 
                 // 🔥 CALL YOUR BACKEND INSTEAD OF NOMINATIM
-                const res = await fetch("http://pure-harvest.onrender.com/api/get-location-details", {
+                const res = await fetch("https://pure-harvest.onrender.com/api/get-location-details", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -214,7 +214,7 @@ export default function Register() {
 
                                         if (showOtpInputs && !canResend) return;
 
-                                        const res = await fetch("http://pure-harvest.onrender.com/send-register-otp", {
+                                        const res = await fetch("https://pure-harvest.onrender.com/send-register-otp", {
                                             method: "POST",
                                             headers: { "Content-Type": "application/json" },
                                             body: JSON.stringify({ phone })
@@ -289,7 +289,7 @@ ${otpVerified ? "bg-gray-200 cursor-not-allowed" : ""}`}
 
                                 <button
                                     onClick={async () => {
-                                        const res = await fetch("http://pure-harvest.onrender.com/verify-register-otp", {
+                                        const res = await fetch("https://pure-harvest.onrender.com/verify-register-otp", {
                                             method: "POST",
                                             headers: { "Content-Type": "application/json" },
                                             body: JSON.stringify({

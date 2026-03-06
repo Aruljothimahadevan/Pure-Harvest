@@ -17,7 +17,7 @@ export default function Payments() {
         const farmerId = sessionStorage.getItem("farmerId");
 
         if (!farmerId) return;
-        fetch(`http://pure-harvest.onrender.com/api/farmer/bank-details/${farmerId}`)
+        fetch(`https://pure-harvest.onrender.com/api/farmer/bank-details/${farmerId}`)
             .then(res => res.json())
             .then(data => {
                 setBank(data);
@@ -29,7 +29,7 @@ export default function Payments() {
             .catch(() => setBank(null));
 
         // Fetch payments
-        fetch(`http://pure-harvest.onrender.com/api/farmer/payments/${farmerId}`)
+        fetch(`https://pure-harvest.onrender.com/api/farmer/payments/${farmerId}`)
             .then(res => res.json())
             .then(data => setPayments({
                 total: data.total || 0,
@@ -99,7 +99,7 @@ export default function Payments() {
 
         const farmerId = sessionStorage.getItem("farmerId");
 
-        const res = await fetch(`http://pure-harvest.onrender.com/api/farmer/bank-details/${farmerId}`, {
+        const res = await fetch(`https://pure-harvest.onrender.com/api/farmer/bank-details/${farmerId}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

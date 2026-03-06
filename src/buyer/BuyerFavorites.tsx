@@ -82,7 +82,7 @@ export default function BuyerFavorites() {
 
                                     const cropId = Number(crop.id);
 
-                                    await fetch(`http://pure-harvest.onrender.com/api/buyer/favorites/${cropId}/${buyerId}`, {
+                                    await fetch(`https://pure-harvest.onrender.com/api/buyer/favorites/${cropId}/${buyerId}`, {
                                         method: "DELETE"
                                     });
 
