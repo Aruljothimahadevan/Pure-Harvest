@@ -1,0 +1,10 @@
+Flask
+flask-cors
+geopandas
+shapely
+scikit-learn
+numpy
+pandas
+supabase
+gunicorn
+apscheduler
