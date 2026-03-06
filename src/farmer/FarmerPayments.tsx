@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
@@ -8,7 +7,6 @@ import FarmerNavBar from "./FarmerTopNavBar";
 export default function Payments() {
     const [showBankModal, setShowBankModal] = useState(false);
     const [bank, setBank] = useState<any>(null)
-    const navigate = useNavigate();
     const [holderName, setHolderName] = useState("");
     const [accountNumber, setAccountNumber] = useState("");
     const [bankName, setBankName] = useState("");

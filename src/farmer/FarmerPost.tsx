@@ -64,9 +64,8 @@ export default function FarmerPost() {
   const [commodity, setCommodity] = useState("");
   const [district, setDistrict] = useState("");
   const [aiPrice, setAiPrice] = useState<number | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [, setLoading] = useState(false);
   const [forecast, setForecast] = useState<{ day: string, price: number }[]>([]);
-  const [bestMandi, setBestMandi] = useState<{ district: string, price: number } | null>(null);
   const navigate = useNavigate();
   const [quantity, setQuantity] = useState(0);
   const [showCamera, setShowCamera] = useState(false);

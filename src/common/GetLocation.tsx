@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { MapPin, Navigation, AlertCircle, Save, Loader2 } from "lucide-react";
 
 type LocationType = {

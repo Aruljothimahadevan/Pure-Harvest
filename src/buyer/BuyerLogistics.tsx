@@ -41,12 +41,6 @@ interface DeliveryItem {
     };
 }
 
-interface User {
-    public_id: string;
-    name: string;
-    role: string;
-}
-
 const BuyerLogistics: React.FC = () => {
     const [deliveries, setDeliveries] = useState<DeliveryItem[]>([]);
     const [loading, setLoading] = useState<boolean>(true);

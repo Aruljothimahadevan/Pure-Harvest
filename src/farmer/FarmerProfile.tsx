@@ -18,7 +18,7 @@ export default function Profile() {
 
   const [profile, setProfile] = useState<any>(null);
   const [rating, setRating] = useState(0);
-  const [reviewCount, setReviewCount] = useState(0);
+  const [, setReviewCount] = useState(0);
   const onCropComplete = (_: any, croppedAreaPixels: any) => {
     setCroppedAreaPixels(croppedAreaPixels);
   };

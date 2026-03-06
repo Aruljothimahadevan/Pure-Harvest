@@ -79,7 +79,7 @@ function CropImageSlider({ photos }: { photos?: string[] }) {
 
     const [index, setIndex] = useState(0);
     const [showPopup, setShowPopup] = useState(false);
-    const [zoom, setZoom] = useState(1);
+    const [, setZoom] = useState(1);
     useEffect(() => {
         if (safePhotos.length === 0 || showPopup) return;
 
@@ -188,7 +188,7 @@ export default function BuyerDashboard() {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
     const [showSuccess, setShowSuccess] = useState(false);
-    const [lastOrder, setLastOrder] = useState<any | null>(null);
+    const [lastOrder] = useState<any | null>(null);
     const [searchTerm, setSearchTerm] = useState("");
 
     const [showSort, setShowSort] = useState(false);
