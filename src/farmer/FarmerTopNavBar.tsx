@@ -39,7 +39,7 @@ export default function TopNavBar() {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/notifications/farmer/${farmerId}`
+        `http://pure-harvest.onrender.com/api/notifications/farmer/${farmerId}`
       );
 
       const data = await res.json();
@@ -70,7 +70,7 @@ export default function TopNavBar() {
   const deleteNotification = async (id: number) => {
 
     await fetch(
-      `http://localhost:5000/api/notifications/delete/${id}`,
+      `http://pure-harvest.onrender.com/api/notifications/delete/${id}`,
       { method: "DELETE" }
     );
 
@@ -86,7 +86,7 @@ export default function TopNavBar() {
     if (!farmerId) return;
 
     await fetch(
-      `http://localhost:5000/api/notifications/clear-seen/farmer/${farmerId}`,
+      `http://pure-harvest.onrender.com/api/notifications/clear-seen/farmer/${farmerId}`,
       { method: "DELETE" }
     );
 
@@ -137,7 +137,7 @@ export default function TopNavBar() {
                 );
 
                 await fetch(
-                  `http://localhost:5000/api/notifications/mark-read/farmer/${farmerId}`,
+                  `http://pure-harvest.onrender.com/api/notifications/mark-read/farmer/${farmerId}`,
                   { method: "POST" }
                 );
 

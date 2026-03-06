@@ -13,7 +13,7 @@ export default function MyCrops() {
     : crops.filter(c => c.status === filter);
   const [loading, setLoading] = useState(true);
   const deleteCrop = async (id: number) => {
-    await fetch(`http://localhost:5000/api/crop/${id}`, { method: "DELETE" });
+    await fetch(`http://pure-harvest.onrender.com/api/crop/${id}`, { method: "DELETE" });
     setCrops(crops.filter(c => c.id !== id));
   };
 
@@ -21,7 +21,7 @@ export default function MyCrops() {
     const farmerId = sessionStorage.getItem("farmerId");
     if (!farmerId) return;
 
-    fetch(`http://localhost:5000/api/farmer/crops/${farmerId}`)
+    fetch(`http://pure-harvest.onrender.com/api/farmer/crops/${farmerId}`)
       .then(res => res.json())
       .then(data => setCrops(data))
       .finally(() => setLoading(false)); // 👈 important

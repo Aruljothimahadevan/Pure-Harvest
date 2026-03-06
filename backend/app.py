@@ -10,7 +10,7 @@ from huggingface_hub import hf_hub_download
 import pickle
 CORS(
     app,
-    resources={r"/*": {"origins": "http://localhost:5173"}},
+    resources={r"/*": {"origins": "*"}},
     supports_credentials=True,
 )
 app.config["CORS_HEADERS"] = "Content-Type"
@@ -2016,7 +2016,11 @@ def send_register_otp():
 
     otp_store[f"register_{phone}"] = otp
 
-    return jsonify({"message": "OTP sent"}), 200
+    # TEMP: return OTP for testing
+    return jsonify({
+        "message": "OTP sent",
+        "otp": otp
+    }), 200
 
 
 @app.route("/verify-register-otp", methods=["POST"])

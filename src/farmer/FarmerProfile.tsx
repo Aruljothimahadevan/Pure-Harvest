@@ -30,7 +30,7 @@ export default function Profile() {
       return;
     }
 
-    fetch(`http://localhost:5000/api/farmer/profile/${farmerId}`)
+    fetch(`http://pure-harvest.onrender.com/api/farmer/profile/${farmerId}`)
       .then(res => res.json())
       .then(async data => {
         const joinedDate = new Date(data.created_at);
@@ -49,7 +49,7 @@ export default function Profile() {
 
         // ⭐ FETCH DASHBOARD DATA (same as dashboard page)
         const dashRes = await fetch(
-          `http://localhost:5000/api/farmer/dashboard/${farmerId}`
+          `http://pure-harvest.onrender.com/api/farmer/dashboard/${farmerId}`
         );
         const dashData = await dashRes.json();
 
@@ -74,7 +74,7 @@ export default function Profile() {
       const farmerId = sessionStorage.getItem("farmerId");
 
       const res = await fetch(
-        `http://localhost:5000/api/farmer/profile-image/${farmerId}`,
+        `http://pure-harvest.onrender.com/api/farmer/profile-image/${farmerId}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -118,7 +118,7 @@ export default function Profile() {
       setSaving(true);
 
       const res = await fetch(
-        `http://localhost:5000/api/farmer/update-profile/${farmerId}`,
+        `http://pure-harvest.onrender.com/api/farmer/update-profile/${farmerId}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

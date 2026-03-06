@@ -203,7 +203,7 @@ export default function BuyerDashboard() {
 
         if (!buyerId) return;
 
-        fetch(`http://127.0.0.1:5000/api/buyer/profile/${buyerId}`)
+        fetch(`https://pure-harvest.onrender.com/api/buyer/profile/${buyerId}`)
             .then(res => res.json())
             .then(data => {
                 setUserName(data.name);
@@ -216,11 +216,11 @@ export default function BuyerDashboard() {
         const buyerId = sessionStorage.getItem("buyerId");
         if (!buyerId) return;
 
-        const favRes = await fetch(`http://127.0.0.1:5000/api/buyer/favorites/${buyerId}`);
+        const favRes = await fetch(`https://pure-harvest.onrender.com/api/buyer/favorites/${buyerId}`);
         const favData = await favRes.json();
         setFavoriteIds(favData.map((c: any) => Number(c.id)));
 
-        const cropRes = await fetch(`http://127.0.0.1:5000/api/ai/recommended-crops/${buyerId}`);
+        const cropRes = await fetch(`https://pure-harvest.onrender.com/api/ai/recommended-crops/${buyerId}`);
         const cropData = await cropRes.json();
 
         setAvailableCrops(cropData);
@@ -254,7 +254,7 @@ export default function BuyerDashboard() {
         const buyerId = sessionStorage.getItem("buyerId");
 
         if (buyerId) {
-            await fetch("http://127.0.0.1:5000/api/search-log", {
+            await fetch("https://pure-harvest.onrender.com/api/search-log", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -263,7 +263,7 @@ export default function BuyerDashboard() {
                 })
             });
         }
-        const res = await fetch("http://127.0.0.1:5000/api/ai/dynamic-price", {
+        const res = await fetch("https://pure-harvest.onrender.com/api/ai/dynamic-price", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -393,7 +393,7 @@ export default function BuyerDashboard() {
                                                         const buyerId = sessionStorage.getItem("buyerId");
 
                                                         if (buyerId) {
-                                                            await fetch("http://127.0.0.1:5000/api/search-log", {
+                                                            await fetch("https://pure-harvest.onrender.com/api/search-log", {
                                                                 method: "POST",
                                                                 headers: { "Content-Type": "application/json" },
                                                                 body: JSON.stringify({
@@ -591,12 +591,12 @@ export default function BuyerDashboard() {
                                                     const isFav = favoriteIds.includes(cropId);
 
                                                     if (isFav) {
-                                                        await fetch(`http://127.0.0.1:5000/api/buyer/favorites/${cropId}/${buyerId}`, {
+                                                        await fetch(`https://pure-harvest.onrender.com/api/buyer/favorites/${cropId}/${buyerId}`, {
                                                             method: "DELETE"
                                                         });
                                                         setFavoriteIds(prev => prev.filter(id => id !== cropId));
                                                     } else {
-                                                        await fetch("http://127.0.0.1:5000/api/buyer/favorites", {
+                                                        await fetch("https://pure-harvest.onrender.com/api/buyer/favorites", {
                                                             method: "POST",
                                                             headers: { "Content-Type": "application/json" },
                                                             body: JSON.stringify({
@@ -864,7 +864,7 @@ export default function BuyerDashboard() {
                                                     state: {
                                                         cropId: selectedCrop.id,
                                                         name: selectedCrop.name,
-                                                        price: aiResult.final_price,
+                                                        price: aiResult?.final_price || selectedCrop.price,
                                                         quantity: buyQuantity
                                                     }
                                                 });

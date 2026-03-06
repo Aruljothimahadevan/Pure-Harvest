@@ -28,7 +28,7 @@ export default function BuyerProfile() {
                 return;
             }
 
-            const res = await fetch(`http://localhost:5000/api/buyer/profile/${buyerId}`);
+            const res = await fetch(`http://pure-harvest.onrender.com/api/buyer/profile/${buyerId}`);
 
             if (!res.ok) {
                 console.error("Profile load failed");
@@ -98,7 +98,7 @@ export default function BuyerProfile() {
 
             const buyerId = sessionStorage.getItem("buyerId");
 
-            const res = await fetch(`http://localhost:5000/api/buyer/profile-image/${buyerId}`, {
+            const res = await fetch(`http://pure-harvest.onrender.com/api/buyer/profile-image/${buyerId}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ image: cropped })
@@ -126,7 +126,7 @@ export default function BuyerProfile() {
         try {
             setSaving(true);
 
-            const res = await fetch(`http://localhost:5000/api/buyer/update-profile/${buyerId}`, {
+            const res = await fetch(`http://pure-harvest.onrender.com/api/buyer/update-profile/${buyerId}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

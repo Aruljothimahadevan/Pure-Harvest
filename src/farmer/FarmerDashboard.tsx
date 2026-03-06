@@ -20,13 +20,13 @@ export default function FarmerDashboard() {
 
         const loadDashboard = async () => {
             try {
-                const profileRes = await fetch(`http://localhost:5000/api/farmer/profile/${farmerId}`);
+                const profileRes = await fetch(`http://pure-harvest.onrender.com/api/farmer/profile/${farmerId}`);
                 const profileData = await profileRes.json();
 
                 sessionStorage.setItem("userName", profileData.name);
                 sessionStorage.setItem("profileImage", profileData.profile_image || "");
                 window.dispatchEvent(new Event("profileUpdated"));
-                const res = await fetch(`http://localhost:5000/api/farmer/dashboard/${farmerId}`);
+                const res = await fetch(`http://pure-harvest.onrender.com/api/farmer/dashboard/${farmerId}`);
                 const data = await res.json();
 
                 setUserName(sessionStorage.getItem("userName") || "");

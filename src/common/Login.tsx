@@ -86,7 +86,7 @@ export default function Login() {
     }
 
     try {
-      const res = await fetch("http://127.0.0.1:5000/login", {
+      const res = await fetch("http://pure-harvest.onrender.com/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phone, password, role })
@@ -128,7 +128,7 @@ export default function Login() {
     }
 
     if (!showOtpInputs) {
-      const res = await fetch("http://127.0.0.1:5000/send-login-otp", {
+      const res = await fetch("http://pure-harvest.onrender.com/send-login-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phone, role })
@@ -146,7 +146,7 @@ export default function Login() {
       setOtpTimer(30);
       setOtpError("");
     } else {
-      const res = await fetch("http://127.0.0.1:5000/verify-login-otp", {
+      const res = await fetch("http://pure-harvest.onrender.com/verify-login-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

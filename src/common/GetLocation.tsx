@@ -39,7 +39,7 @@ export default function GetLocation() {
 
 const convertToPlace = async (lat: number, lng: number) => {
   try {
-    const res = await fetch("http://127.0.0.1:5000/api/get-location-details", {
+    const res = await fetch("http://pure-harvest.onrender.com/api/get-location-details", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

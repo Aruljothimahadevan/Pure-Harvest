@@ -105,7 +105,7 @@ export default function FarmerPost() {
     const farmerId = sessionStorage.getItem("farmerId");
     if (!farmerId) return;
 
-    fetch(`http://localhost:5000/api/farmer/profile/${farmerId}`)
+    fetch(`http://pure-harvest.onrender.com/api/farmer/profile/${farmerId}`)
       .then(res => res.json())
       .then(data => {
         if (!data.district) return;
@@ -128,7 +128,7 @@ export default function FarmerPost() {
       return;
     }
 
-    await fetch("http://127.0.0.1:5000/api/crop", {
+    await fetch("http://pure-harvest.onrender.com/api/crop", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -206,7 +206,7 @@ export default function FarmerPost() {
   };
   const fetchForecast = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:5000/api/ai/hybrid_5day", {
+      const res = await fetch("http://pure-harvest.onrender.com/api/ai/hybrid_5day", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ district, commodity })
@@ -250,7 +250,7 @@ export default function FarmerPost() {
     try {
       setLoading(true);
 
-      const res = await fetch("http://127.0.0.1:5000/api/ai/dynamic-price", {
+      const res = await fetch("http://pure-harvest.onrender.com/api/ai/dynamic-price", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ district, commodity })

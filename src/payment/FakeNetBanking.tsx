@@ -32,7 +32,7 @@ export default function FakeNetBanking() {
         // Simulate secure bank authentication
         setTimeout(async () => {
 
-            await fetch(`http://127.0.0.1:5000/api/confirm-payment/${state.order_id}`, {
+            await fetch(`http://pure-harvest.onrender.com/api/confirm-payment/${state.order_id}`, {
                 method: "POST"
             });
 

@@ -43,7 +43,7 @@ export default function Register() {
             }
         }
         try {
-            const res = await fetch("http://127.0.0.1:5000/register", {
+            const res = await fetch("http://pure-harvest.onrender.com/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -108,7 +108,7 @@ export default function Register() {
                 setLongitude(lng);
 
                 // 🔥 CALL YOUR BACKEND INSTEAD OF NOMINATIM
-                const res = await fetch("http://127.0.0.1:5000/api/get-location-details", {
+                const res = await fetch("http://pure-harvest.onrender.com/api/get-location-details", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -214,18 +214,20 @@ export default function Register() {
 
                                         if (showOtpInputs && !canResend) return;
 
-                                        const res = await fetch("http://127.0.0.1:5000/send-register-otp", {
+                                        const res = await fetch("http://pure-harvest.onrender.com/send-register-otp", {
                                             method: "POST",
                                             headers: { "Content-Type": "application/json" },
                                             body: JSON.stringify({ phone })
                                         });
-
                                         const data = await res.json();
 
                                         if (!res.ok) {
                                             setOtpError(data.error || "Failed to send OTP");
                                             return;
                                         }
+
+                                        // TEMP: show OTP
+                                        alert("Your OTP is: " + data.otp);
 
                                         setShowOtpInputs(true);
                                         setOtp(new Array(4).fill(""));
@@ -287,7 +289,7 @@ ${otpVerified ? "bg-gray-200 cursor-not-allowed" : ""}`}
 
                                 <button
                                     onClick={async () => {
-                                        const res = await fetch("http://127.0.0.1:5000/verify-register-otp", {
+                                        const res = await fetch("http://pure-harvest.onrender.com/verify-register-otp", {
                                             method: "POST",
                                             headers: { "Content-Type": "application/json" },
                                             body: JSON.stringify({
