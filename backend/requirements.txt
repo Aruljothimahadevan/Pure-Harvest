@@ -12,3 +12,4 @@ apscheduler
 supabase
 python-dotenv
 gunicorn
+huggingface_hub
